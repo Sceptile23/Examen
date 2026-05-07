@@ -1,0 +1,14 @@
+/home/christian/Documentos/dotnet/Examen/bin/Debug/net8.0/Examen
+/home/christian/Documentos/dotnet/Examen/bin/Debug/net8.0/Examen.deps.json
+/home/christian/Documentos/dotnet/Examen/bin/Debug/net8.0/Examen.runtimeconfig.json
+/home/christian/Documentos/dotnet/Examen/bin/Debug/net8.0/Examen.dll
+/home/christian/Documentos/dotnet/Examen/bin/Debug/net8.0/Examen.pdb
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.GeneratedMSBuildEditorConfig.editorconfig
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.AssemblyInfoInputs.cache
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.AssemblyInfo.cs
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.csproj.CoreCompileInputs.cache
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.dll
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/refint/Examen.dll
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.pdb
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/Examen.genruntimeconfig.cache
+/home/christian/Documentos/dotnet/Examen/obj/Debug/net8.0/ref/Examen.dll

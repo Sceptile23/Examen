@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1okb64qyHgoMhZzdWEqVHVR/gzRKSGECx3cyQEal4Nx93vE+UgAMQGUwkxjNnyTuF2ohMjCTSRfdxTdRwaQ6CA==",
+  "success": true,
+  "projectFilePath": "/home/christian/Documentos/dotnet/Examen/Examen.csproj",
+  "expectedPackageFiles": [
+    "/home/christian/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.25/microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}
