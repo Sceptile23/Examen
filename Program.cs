@@ -39,7 +39,15 @@ public class Program
                     Console.WriteLine("Write your age: ");
                     int.TryParse(Console.ReadLine(), out int age);
 
-                    service.RegisterUser(users, name, age);
+                    if (service.RegisterUser(users, name, age))
+                    {
+                        Console.WriteLine("Added user");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The user exists.");
+                    }
+                    ;
                 break;
 
                 case Menu.Search:
@@ -51,7 +59,16 @@ public class Program
                         continue;
                     }
 
-                    service.SearchUser(users, name);
+                    var user = service.SearchUser(users, name);
+
+                    if (user != null)
+                    {
+                        Console.WriteLine($"Name: {user.Name}, Age: {user.Age}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("User not found.");
+                    }
                 break;
 
                 case Menu.Update:
@@ -61,10 +78,16 @@ public class Program
                     if(string.IsNullOrWhiteSpace(name))
                     {
                         Console.WriteLine("Don't write the user");
+                        continue;
+                    }
+
+                    if(service.UpdateUser(users, name))
+                    {
+                        Console.WriteLine("updated age.");
                     }
                     else
                     {
-                        service.UpdateUser(users, name);
+                        Console.WriteLine("user not found or invalid age.");
                     }
                 break;
 
@@ -75,10 +98,16 @@ public class Program
                     if (string.IsNullOrWhiteSpace(name))
                     {
                         Console.WriteLine("Don't write the user");
+                        continue;
+                    }
+
+                    if (service.DeletedUser(users, name))
+                    {
+                        Console.WriteLine("Deleted user.");
                     }
                     else
                     {
-                        service.DeletedUser(users, name);
+                        Console.WriteLine("User not found.");
                     }
                 break;
 

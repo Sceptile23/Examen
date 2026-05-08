@@ -20,42 +20,28 @@ public class User
 
 public class UserService
 {
-    public void RegisterUser(List<User> users, string name, int age)
+    public bool RegisterUser(List<User> users, string name, int age)
     {
         var user = new User(name, age);
+
         if (!users.Any(u => u.Name == user.Name))
         {
             users.Add(user);
-            Console.WriteLine("Added user");
+            return true;
         }
         else
         {
-            Console.WriteLine("The usser exists.");
+            return false;
         }
     }
 
-    public void SearchUser(List<User> users, string name)
+    public User? SearchUser(List<User> users, string name)
     {
-        if (users.Any())
-        {
-            var user = users.FirstOrDefault(u => u.Name == name);
-
-            if(user != null)
-            {
-                Console.WriteLine($"Name: {user.Name}, Age: {user.Age}.");
-            }
-            else
-            {
-                Console.WriteLine("the user exists.");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Data found");
-        }
+        var user = users.FirstOrDefault(u => u.Name == name);
+        return user;
     }
 
-    public void UpdateUser(List<User> users, string name)
+    public bool UpdateUser(List<User> users, string name)
     {
         var user = users.FirstOrDefault(u => u.Name == name);
 
@@ -68,33 +54,36 @@ public class UserService
             {
                 if(tempAge <= 0)
                 {
-                    Console.WriteLine("Invalid age.");
+                    return false;
                 }
                 else
                 {
                     user.Age = tempAge;
-                    Console.WriteLine("updated age.");
+                    return true;
                 }
             }
             else
             {
-                Console.WriteLine("user not found");
+                return false;
             }
+        }else
+        {
+            return false;
         }
     }
 
-    public void DeletedUser(List<User> users, string name)
+    public bool DeletedUser(List<User> users, string name)
     {
         var user = users.FirstOrDefault(u => u.Name == name);
 
         if(user != null)
         {
             users.Remove(user);
-            Console.WriteLine("Deleted user.");
+            return true;
         }
         else
         {
-            Console.WriteLine("User not found.");
+            return false;
         }
     }
 }
