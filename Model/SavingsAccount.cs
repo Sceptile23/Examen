@@ -12,22 +12,18 @@ public class SavingsAccount : BankAccount, ITransaction
         this.Balance = balance;
     }
 
-    public override bool Deposit(List<BankAccount> accounts, int id, decimal amount)
+    public override void Deposit(decimal amount)
     {
-        if (amount <= 0)
-        {
-            throw new ArgumentException("Deposit amount must greater than zero.");
-        }
-
-        return base.Deposit(accounts, id, amount);
+        base.Deposit(amount);
     }
 
-    public override bool WithDraw(List<BankAccount> accounts, int id, decimal amount)
+    public override void WithDraw(decimal amount)
     {
-        if(amount <= 0)
+        //1 RULE IS THE USER NO CAN WITDRAH MORE OF THE BALANCE
+        if(this.Balance < amount)
         {
-            throw new ArgumentException("Withdrwal amount must greater than zero.");
+            throw new InvalidOperationException("Insufficient funds.");
         }
-        return base.WithDraw(accounts, id, amount);
+        this.Balance -= amount;
     }
 }

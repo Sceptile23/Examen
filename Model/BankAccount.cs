@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime;
 
 namespace Examen.Model;
 
@@ -9,7 +10,7 @@ public class BankAccount : ITransaction
     public int Id {get; set;}
     [Required (ErrorMessage = "OwnerName is required.")]
     public string OwnerName {get; set;} = string.Empty;
-    public decimal Balance {get; set;}
+    public decimal Balance {get; set;} = 0m;
 
     public BankAccount(int id, string ownerName, decimal balance)
     {
@@ -18,42 +19,18 @@ public class BankAccount : ITransaction
         this.Balance = balance;
     }
 
-    public virtual bool Deposit(List<BankAccount> accounts, int id, decimal amount)
+    public virtual void Deposit(decimal amount)
     {
-        var account = accounts.FirstOrDefault(a => a.Id == id);
-        if (account != null)
-        {
-            account.Balance += amount;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        this.Balance += amount;
     }
 
-    public virtual bool WithDraw(List<BankAccount> accounts, int id, decimal amount)
+    public virtual void WithDraw(decimal amount)
     {
-        var account = accounts.FirstOrDefault(a => a.Id == id);
-        
-        if (account != null)
-        {
-            if(account.Balance <= amount)
-            {
-                throw new InvalidOperationException("Insufficient founds.");
-            }
-            account.Balance -= amount;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        this.Balance -= amount;
     }
 
-    public virtual BankAccount? ShowInformation(List<BankAccount> accounts, int id)
+    public virtual string ShowInformation()
     {
-        var account = accounts.FirstOrDefault(a => a.Id == id);
-        return account;
+        return $"ID: {this.Id}, Owner name: {this.OwnerName}, Balance: {this.Balance}";
     }
 }

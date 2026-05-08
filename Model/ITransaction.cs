@@ -4,6 +4,6 @@ namespace Examen.Model;
 
 public interface ITransaction
 {
-    public bool Deposit(List<BankAccount> accounts, int id, decimal amount);
-    public bool WithDraw(List<BankAccount> accounts, int id, decimal amount);
+    public void Deposit(decimal amount);
+    public void WithDraw(decimal amount);
 }
